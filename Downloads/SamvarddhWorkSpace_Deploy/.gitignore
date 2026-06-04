@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+samvarddh_data/
+*.db
+.env
