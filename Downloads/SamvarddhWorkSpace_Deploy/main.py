@@ -50,7 +50,7 @@ uploads_path.mkdir(parents=True, exist_ok=True)
 app.mount("/uploads", StaticFiles(directory=str(uploads_path)), name="uploads")
 
 # Frontend path
-FRONTEND = pathlib.Path(__file__).parent.parent / "frontend" / "index.html"
+FRONTEND = pathlib.Path(__file__).parent / "frontend" / "index.html"
 
 @app.get("/app", response_class=HTMLResponse)
 @app.get("/app/", response_class=HTMLResponse)
