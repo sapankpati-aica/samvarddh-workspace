@@ -8,8 +8,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 import pathlib
 
-from database import init_db
-from routers import auth, users, clients, quotations, designs, procurement, worklogs, invoices, dashboard, employees, setup, backup, suppliers
+from backend.database import init_db
+from backend.routers import auth, users, clients, quotations, designs, procurement, worklogs, invoices, dashboard, employees, setup, backup, suppliers
 
 app = FastAPI(
     title="Samvarddh Work-Space API",
@@ -66,3 +66,4 @@ async def startup():
     print("\n✅ Samvarddh Work-Space is running!")
     print("📱 Open in browser: http://localhost:8000/app")
     print("🌐 For office LAN: http://<your-ip>:8000/app\n")
+

@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-from database import get_db
+from backend.database import get_db
 from routers.auth import get_current_user, log_audit
 
 router = APIRouter()
@@ -64,3 +64,4 @@ def delete_supplier(sup_id: int, current_user=Depends(get_current_user), db=Depe
     db.execute("UPDATE suppliers SET status='Inactive' WHERE id=?",(sup_id,))
     db.commit()
     return {"message":"Supplier deactivated."}
+

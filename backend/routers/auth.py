@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from typing import Optional
 import bcrypt, jwt, sqlite3
 from datetime import datetime, timedelta
-from database import get_db, DB_PATH
+from backend.database import get_db, DB_PATH
 
 router = APIRouter()
 SECRET_KEY = "samvarddh-secret-key-2025-change-in-production"
@@ -97,3 +97,4 @@ def get_audit_log(current_user=Depends(get_current_user), db=Depends(get_db)):
         raise HTTPException(status_code=403, detail="Admin only.")
     rows = db.execute("SELECT * FROM audit_log ORDER BY created_at DESC LIMIT 500").fetchall()
     return [dict(r) for r in rows]
+

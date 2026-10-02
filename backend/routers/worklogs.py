@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-from database import get_db
+from backend.database import get_db
 from routers.auth import get_current_user, log_audit
 
 router = APIRouter()
@@ -74,3 +74,4 @@ def performance_report(current_user=Depends(get_current_user), db=Depends(get_db
         ORDER BY w.target_date
     """).fetchall()
     return [dict(r) for r in rows]
+

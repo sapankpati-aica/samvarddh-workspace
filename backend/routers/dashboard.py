@@ -1,6 +1,6 @@
 """Dashboard router — rich management analytics"""
 from fastapi import APIRouter, Depends
-from database import get_db
+from backend.database import get_db
 from routers.auth import get_current_user
 
 router = APIRouter()
@@ -306,3 +306,4 @@ def get_summary_filtered(
         "quarterly_receipts": [dict(r) for r in quarterly],
         "rev_vs_proc": [dict(r) for r in rev_vs_proc],
     }
+

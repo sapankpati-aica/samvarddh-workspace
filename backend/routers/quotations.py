@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional, List
 from datetime import datetime
-from database import get_db
+from backend.database import get_db
 from routers.auth import get_current_user, log_audit
 
 router = APIRouter()
@@ -223,3 +223,4 @@ def get_project_report(client_id: int, current_user=Depends(get_current_user), d
             "gross_margin":    total_contract - total_proc,
         }
     }
+

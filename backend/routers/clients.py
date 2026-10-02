@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-from database import get_db
+from backend.database import get_db
 from routers.auth import get_current_user, log_audit
 
 router = APIRouter()
@@ -55,3 +55,4 @@ def update_client(client_id: int, data: ClientCreate, current_user=Depends(get_c
     db.commit()
     log_audit(db, current_user["sub"], "Update Client", "Clients", f"Client ID: {client_id}")
     return {"message": "Client updated."}
+
