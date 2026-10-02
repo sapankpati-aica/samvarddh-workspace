@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Optional, List
 from datetime import datetime
 from backend.database import get_db
-from routers.auth import get_current_user, log_audit
+from backend.routers.auth import get_current_user, log_audit
 
 router = APIRouter()
 
@@ -158,7 +158,7 @@ def _save_items(db, q_id, items):
 @router.get("/project-report/{client_id}")
 def get_project_report(client_id: int, current_user=Depends(get_current_user), db=Depends(get_db)):
     """Full project report for PDF generation"""
-    from routers.auth import log_audit
+    from backend.routers.auth import log_audit
 
     client = db.execute("SELECT * FROM clients WHERE id=?", (client_id,)).fetchone()
     if not client:
@@ -223,4 +223,5 @@ def get_project_report(client_id: int, current_user=Depends(get_current_user), d
             "gross_margin":    total_contract - total_proc,
         }
     }
+
 

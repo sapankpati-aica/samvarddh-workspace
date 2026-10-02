@@ -4,7 +4,7 @@ from typing import Optional
 from datetime import datetime
 import pathlib, shutil, uuid
 from backend.database import get_db
-from routers.auth import get_current_user, log_audit
+from backend.routers.auth import get_current_user, log_audit
 
 router = APIRouter()
 UPLOAD_DIR = pathlib.Path("samvarddh_data/uploads/designs")
@@ -91,4 +91,5 @@ async def upload_design(
     
     file_url = "/uploads/designs/" + fname
     return {"message": f"Design file '{file.filename}' uploaded successfully.", "url": file_url}
+
 

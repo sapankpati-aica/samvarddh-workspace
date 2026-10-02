@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Optional, List
 from datetime import datetime, date
 from backend.database import get_db
-from routers.auth import get_current_user, log_audit
+from backend.routers.auth import get_current_user, log_audit
 
 router = APIRouter()
 
@@ -287,4 +287,5 @@ def get_aging_report(current_user=Depends(get_current_user), db=Depends(get_db))
             d["aging_bucket"] = "90+ days"
         result.append(d)
     return result
+
 

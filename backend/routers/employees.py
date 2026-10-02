@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 from backend.database import get_db
-from routers.auth import get_current_user, log_audit
+from backend.routers.auth import get_current_user, log_audit
 
 router = APIRouter()
 
@@ -43,4 +43,5 @@ def delete_employee(emp_id: int, current_user=Depends(get_current_user), db=Depe
     db.execute("UPDATE employees SET status='Inactive' WHERE id=?", (emp_id,))
     db.commit()
     return {"message": "Employee deactivated."}
+
 

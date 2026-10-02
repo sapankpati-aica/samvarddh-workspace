@@ -4,7 +4,7 @@ from fastapi.responses import FileResponse
 import pathlib, shutil, zipfile
 from datetime import datetime
 from backend.database import DB_PATH, get_db
-from routers.auth import get_current_user, log_audit
+from backend.routers.auth import get_current_user, log_audit
 
 router = APIRouter()
 BACKUP_DIR = pathlib.Path("samvarddh_data/backups")
@@ -53,4 +53,5 @@ def get_paths(current_user=Depends(get_current_user)):
         "reports": str(pathlib.Path("samvarddh_data/reports").absolute()),
         "backups": str(BACKUP_DIR.absolute()),
     }
+
 

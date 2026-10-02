@@ -98,3 +98,4 @@ def get_audit_log(current_user=Depends(get_current_user), db=Depends(get_db)):
     rows = db.execute("SELECT * FROM audit_log ORDER BY created_at DESC LIMIT 500").fetchall()
     return [dict(r) for r in rows]
 
+

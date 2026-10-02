@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Optional
 import pathlib, shutil, uuid, os
 from backend.database import get_db
-from routers.auth import get_current_user
+from backend.routers.auth import get_current_user
 
 router = APIRouter()
 UPLOAD_DIR = pathlib.Path("samvarddh_data/uploads/setup")
@@ -139,4 +139,5 @@ async def upload_signature(
     
     sig_url = "/uploads/setup/" + fname
     return {"message": "Signature uploaded successfully.", "path": str(fpath), "url": sig_url}
+
 

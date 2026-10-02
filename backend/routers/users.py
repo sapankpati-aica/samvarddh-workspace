@@ -5,7 +5,7 @@ from typing import Optional
 import bcrypt
 from datetime import datetime
 from backend.database import get_db
-from routers.auth import get_current_user, log_audit
+from backend.routers.auth import get_current_user, log_audit
 
 router = APIRouter()
 
@@ -94,4 +94,5 @@ def get_roles():
 @router.get("/designations/list")
 def get_designations():
     return DESIGNATIONS
+
 
