@@ -118,7 +118,7 @@ window.onunhandledrejection=function(e){
 // Fix3: Setup upload working  Fix4: Design files save button+upload fixed
 // Fix5: Procurement conveyance  Fix6: Invoice full reconciliation+receipts
 
-const API='http://localhost:8000/api';
+const API=window.location.origin+'/api';
 let token=localStorage.getItem('sw_token')||'';
 let currentUser=JSON.parse(localStorage.getItem('sw_user')||'null');
 let currentPage='dashboard';
@@ -2542,3 +2542,4 @@ render();
 </script>
 </body>
 </html>
+
